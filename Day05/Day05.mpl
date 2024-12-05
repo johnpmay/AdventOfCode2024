@@ -9,13 +9,12 @@ updates := map(s->(map(s2i,Split(s,","))), Split(updates, "\n")):
 goodups := DEQueue():
 obadups := DEQueue():
 for u in updates do
-    good := true;
     for r in rules do
         if member(r[1],u,'i') and member(r[2],u,'j') then
-           if j < i then good := false; push_back(obadups, u); break; end if;
+           if j < i then push_back(obadups, u); next 2; end if;
         end if;
      end do;
-     if good then push_back(goodups, u) end if;
+     push_back(goodups, u);
 end do:
 
 ans1 := add(g[ceil(numelems(g)/2)], g in goodups);

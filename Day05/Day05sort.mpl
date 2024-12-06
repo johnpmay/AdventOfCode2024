@@ -18,3 +18,6 @@ ans1 := add(sortups[i][ceil(numelems(sortups[i])/2)], i in goodidx);
 
 ans2 := add(sortups[i][ceil(numelems(sortups[i])/2)], i in fixidx);
 
+G:=GraphTheory:-Graph({rules[]});
+FindCycle(G);
+seq(FindCycle(G,v),v in V);

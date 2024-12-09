@@ -24,6 +24,7 @@ for a in atts do
     pairs := [ seq([Ls[a][c[1]],Ls[a][c[2]]], c in combinat:-choose(nops(Ls[a]),2)) ];
     for p in pairs do
         delta := p[2] - p[1];
+	delta := 1/igcd(delta[1],delta[2])*~delta;
         newas := NULL:
         na := p[1];
         while lclamp(1, na, m) = na do

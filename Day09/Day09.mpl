@@ -35,15 +35,12 @@ empties := table(sparse=NULL):
 emsp := table(spaces): moved := NULL:
 for i from nops(files) to 1 by -1 do
 # find a space to move file i
-     s := 1;
-     while s < i do # must be an empty space to the left         
+     for s to i-1 do # must be an empty space to the left         
          if emsp[s] >= files[i] then
              empties[s] ,= [i-1,files[i]];         
              emsp[s] -= files[i];
              moved ,= i;
              break;
-         else
-            s++;
          end if;  
      end do;
 end do:

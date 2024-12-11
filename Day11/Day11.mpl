@@ -1,8 +1,10 @@
 with(StringTools): s2i := s->sscanf(s,"%d")[1]: i2s := i->cat("",i):
 input := FileTools:-Text:-ReadFile("../../AdventOfCode_inputs/AoC-2024-11-input.txt" ):
 inp := s2i~(map(Words,Trim(input)));
+
+# this is 30x slower with option cache
 count := proc(n, s)
-option cache;
+option remember;
     if n = 0 then return 1;
     elif s=0 then return count(n-1,1);
     elif s=1 and n>=3 then return 2*count(n-3,2)+count(n-3,0)+count(n-3,4); #20 24

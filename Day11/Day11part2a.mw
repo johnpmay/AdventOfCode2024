@@ -4,7 +4,7 @@
 <Label-Scheme value="2" prefix=""/>
 <View-Properties presentation="false" autoexpanding_sections="true" UserProfileName="Maple Default Profile" NumericFormat-ApplyInteger="true" NumericFormat-ApplyRational="true" NumericFormat-ApplyExponent="false" editable="true">
 </View-Properties>
-<MapleNet-Properties prettyprint="3" warnlevel="3" compactdisplay="false" preplot="" helpbrowser="standard" displayprecision="-1" echo="1" scientificx="true" unitattributes="&quot;fontweight&quot; = &quot;bold&quot;" imaginaryunit="I" longdelim="true" elisiontermsthreshold="10000" elisiondigitsafter="100" elisiondigitsbefore="100" plotdevice="inline" errorbreak="1" plotoptions="" plotdriver="opengl" quiet="false" elisiontermsbefore="100" elisiontermsafter="100" historytimestamp="false" screenwidth="79" indentamount="4" plotoutput="terminal" screenpixelheight="1152" rtablesize="[10, 10]" useclientjvm="true" format="worksheet" labelwidth="20" postplot="" typesetting="extended" ansi="false" ansicolor="[]" elisiondigitsthreshold="10000" showassumed="1" ansilprint="false" trailingsemicolon="true" errorcursor="false" labelling="true" screenheight="25" prompt="&gt; " verboseproc="1" latexwidth="8.0" ShowLabels="true"/>
+<MapleNet-Properties prettyprint="3" warnlevel="3" compactdisplay="false" preplot="" helpbrowser="standard" displayprecision="-1" echo="1" scientificx="true" unitattributes="&quot;fontweight&quot; = &quot;bold&quot;" imaginaryunit="I" longdelim="true" elisiontermsthreshold="10000" elisiondigitsafter="100" elisiondigitsbefore="100" plotdevice="inline" errorbreak="1" plotoptions="" plotdriver="opengl" quiet="false" elisiontermsbefore="100" elisiontermsafter="100" historytimestamp="false" screenwidth="79" indentamount="4" plotoutput="terminal" screenpixelheight="1440" rtablesize="[10, 10]" useclientjvm="true" format="worksheet" labelwidth="20" postplot="" typesetting="extended" ansi="false" ansicolor="[]" elisiondigitsthreshold="10000" showassumed="1" ansilprint="false" trailingsemicolon="true" errorcursor="false" labelling="true" screenheight="25" prompt="&gt; " verboseproc="2" latexwidth="8.0" ShowLabels="true"/>
 <Styles>
 <Font name="Heading 1" background="[255,255,255]" bold="true" executable="false" family="Times New Roman" foreground="[0,0,0]" italic="false" opaque="false" readonly="false" size="18" subscript="false" superscript="false" underline="false" strikethrough="false" placeholder="false"/>
 <Font name="Warning" background="[255,255,255]" bold="false" executable="false" family="Courier New" foreground="[0,0,255]" italic="false" opaque="false" readonly="true" size="12" subscript="false" superscript="false" underline="false" strikethrough="false" placeholder="false"/>
@@ -123,35 +123,40 @@ with(StringTools): s2i := s-&gt;sscanf(s,&quot;%d&quot;)[1]: i2s := i-&gt;cat(&q
 </Input>
 </Group>
 <Group hide-input="false" labelreference="L26" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">count := proc(n, s)option cache;    if n = 0 then return 1;    elif s=0 then return thisproc(n-1,1);    end if;    local l := length(s);    if l mod 2 = 0 then       local f := floor( s/10^(l/2) );       return thisproc(n-1,f) + thisproc(n-1,s-f*10^(l/2));    else return thisproc(n-1, 2024*s);    end if;end proc:</Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">count := proc(n, s)
+option remember;
+    if n = 0 then return 1;
+    elif s=0 then return thisproc(n-1,1);
+    end if;
+    local l := length(s);
+    if l mod 2 = 0 then
+       local f := floor( s/10^(l/2) );
+       return thisproc(n-1,f) + thisproc(n-1,s-f*10^(l/2));
+    else return thisproc(n-1, 2024*s);
+    end if;
+end proc:</Text-field>
 </Input>
 </Group>
 <Group hide-input="false" labelreference="L35" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">ans1 := add( map2(count, 25, inp) );</Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">ans1 := CodeTools:-Usage( add( map2(count, 25, inp) ) );</Text-field>
 </Input>
+<Output><Text-field style="Line Printed Output" layout="Line Printed Output">memory used=2.17MiB, alloc change=0 bytes, cpu time=20.00ms, real time=20.00ms, gc time=0ns
+</Text-field>
+</Output>
 <Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVElYW5zMUYnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JI21vR0YkNi1RKSZBc3NpZ247RicvRjNRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0Y9LyUpc3RyZXRjaHlHRj0vJSpzeW1tZXRyaWNHRj0vJShsYXJnZW9wR0Y9LyUubW92YWJsZWxpbWl0c0dGPS8lJ2FjY2VudEdGPS8lJ2xzcGFjZUdRLDAuMjc3Nzc3OGVtRicvJSdyc3BhY2VHRkwtSSNtbkdGJDYkUScyMjI0NjFGJ0Y5Rjk=">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSVhbnMxR0YoIidoQ0E3I0Yu</Equation></Text-field>
 </Output>
 </Group>
 <Group hide-input="false" labelreference="L27" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">ans2 := add( map2(count, 75, inp) );</Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">ans2 := CodeTools:-Usage( add( map2(count, 75, inp) ) );</Text-field>
 </Input>
+<Output><Text-field style="Line Printed Output" layout="Line Printed Output">memory used=152.68MiB, alloc change=0 bytes, cpu time=1.40s, real time=1.31s, gc time=179.24ms
+</Text-field>
+</Output>
+<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVElYW5zMkYnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JI21vR0YkNi1RKSZBc3NpZ247RicvRjNRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0Y9LyUpc3RyZXRjaHlHRj0vJSpzeW1tZXRyaWNHRj0vJShsYXJnZW9wR0Y9LyUubW92YWJsZWxpbWl0c0dGPS8lJ2FjY2VudEdGPS8lJ2xzcGFjZUdRLDAuMjc3Nzc3OGVtRicvJSdyc3BhY2VHRkwtSSNtbkdGJDYkUTAyNjQzNTA5MzU3NzY0MTZGJ0Y5Rjk=">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSVhbnMyR0YoIjA7a3hONE5rIzcjRi4=</Equation></Text-field>
+</Output>
 </Group>
 <Group labelreference="L28" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"></Text-field>
-</Input>
-</Group>
-<Group labelreference="L30" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field style="Text" layout="Normal">count(n,&quot;0&quot;) 
- = count(n-1, &quot;1&quot;)
- = count(n-2, &quot;2024&quot;)
- = count(n-3,&quot;20&quot;)+count(n-3,&quot;24&quot;)
- = 2*count(n-4, &quot;2&quot;) + count(n-4, &quot;0&quot;) + count(n-4, &quot;4&quot;) count(n, &quot;1&quot;)
- = count(n-1, &quot;2024&quot;)
- = count(n-2,&quot;20&quot;)+count(n-2,&quot;24&quot;)
- = 2*count(n-3, &quot;2&quot;) + count(n-3, &quot;0&quot;) + count(n-3, &quot;4&quot;)count(n, &quot;2&quot;)
-= count(n-1, &quot;4048&quot;)
-= count(n-2, &quot;40&quot;) + count(n-2,&quot;48&quot;)
-= 2*count(n-3, &quot;4&quot;) + count(n-3,&quot;0&quot;) + count(n-3, &quot;8&quot;);</Text-field>
 </Input>
 </Group>
 </Worksheet>

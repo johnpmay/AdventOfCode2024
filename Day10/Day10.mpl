@@ -10,9 +10,8 @@ grid := Array(0..m+1, 0..n+1, ()->11):
 grid[1..m,1..n] := ogrid:
 
 scoreTH := proc(start)
-global grid; # option trace;
-local dir;
-   local  peaks := {};
+global grid; local dir;
+local peaks := {};
    grid[start[]];
    if grid[start[]] = 9 then return {start}; end if;
    for dir in [[0,1],[1,0],[-1,0],[0,-1]] do
@@ -25,8 +24,7 @@ end proc:
 ans1 := add(nops(t), t in scoreTH~(ths));
 
 rateTH := proc(start)
-global grid; # option trace;
-local dir;
+global grid; local dir;
    local score := 0;
    grid[start[]];
    if grid[start[]] = 9 then return 1; end if;

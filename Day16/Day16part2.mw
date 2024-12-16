@@ -133,22 +133,18 @@ with(StringTools): s2i := s-&gt;sscanf(s,&quot;%d&quot;)[1]:</Text-field>
 #.#.#.........#.#
 #.#.#.#########.#
 #S#.............#
-#################
-&quot;:</Text-field>
+#################&quot;:</Text-field>
 </Input>
 </Group>
 <Group hide-input="false" labelreference="L13" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"><Font encoding="UTF-8">mazelines := (Split(Trim(input), &quot;\134n&quot;)):
-</Font>sgrid := map(Explode, mazelines):
-m,n := nops(sgrid), nops(sgrid[1]);
-tgrid := table([seq(seq([i,j]=sgrid[i,j],i=1..m),j=1..n)]):</Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"><Font encoding="UTF-8">mazelines := (Split(Trim(input), &quot;\134n&quot;)):</Font>sgrid := map(Explode, mazelines):
+m,n := nops(sgrid), nops(sgrid[1]);tgrid := table([seq(seq([i,j]=sgrid[i,j],i=1..m),j=1..n)]):</Text-field>
 </Input>
 <Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYqLUkjbWlHRiQ2JVEibUYnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JI21vR0YkNi1RKCZjb21tYTtGJy9GM1Enbm9ybWFsRicvJSZmZW5jZUdRJmZhbHNlRicvJSpzZXBhcmF0b3JHRjEvJSlzdHJldGNoeUdGPS8lKnN5bW1ldHJpY0dGPS8lKGxhcmdlb3BHRj0vJS5tb3ZhYmxlbGltaXRzR0Y9LyUnYWNjZW50R0Y9LyUnbHNwYWNlR1EmMC4wZW1GJy8lJ3JzcGFjZUdRLDAuMzMzMzMzM2VtRictRiw2JVEibkYnRi9GMi1GNjYtUSkmQXNzaWduO0YnRjlGOy9GP0Y9RkBGQkZERkZGSC9GS1EsMC4yNzc3Nzc4ZW1GJy9GTkZYLUkjbW5HRiQ2JFEkMTQxRidGOUY1RlpGOQ==">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+NiRJIm1HRihJIm5HRig2JCIkVCJGMTckRjFGMQ==</Equation></Text-field>
 </Output>
 </Group>
 <Group hide-input="false" labelreference="L14" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">start := lhs(select(e-&gt;rhs(e)=&quot;S&quot;, [entries(tgrid,'pairs')])[]);
-finish := lhs(select(e-&gt;rhs(e)=&quot;E&quot;, [entries(tgrid,'pairs')])[]);</Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">start := lhs(select(e-&gt;rhs(e)=&quot;S&quot;, [entries(tgrid,'pairs')])[]);finish := lhs(select(e-&gt;rhs(e)=&quot;E&quot;, [entries(tgrid,'pairs')])[]);</Text-field>
 </Input>
 <Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVEmc3RhcnRGJy8lJ2l0YWxpY0dRJXRydWVGJy8lLG1hdGh2YXJpYW50R1EnaXRhbGljRictSSNtb0dGJDYtUSkmQXNzaWduO0YnL0YzUSdub3JtYWxGJy8lJmZlbmNlR1EmZmFsc2VGJy8lKnNlcGFyYXRvckdGPS8lKXN0cmV0Y2h5R0Y9LyUqc3ltbWV0cmljR0Y9LyUobGFyZ2VvcEdGPS8lLm1vdmFibGVsaW1pdHNHRj0vJSdhY2NlbnRHRj0vJSdsc3BhY2VHUSwwLjI3Nzc3NzhlbUYnLyUncnNwYWNlR0ZMLUkobWZlbmNlZEdGJDYmLUYjNigtSSNtbkdGJDYkUSQxNDBGJ0Y5LUY2Ni1RIixGJ0Y5RjsvRj9GMUZARkJGREZGRkgvRktRJjAuMGVtRicvRk5RLDAuMzMzMzMzM2VtRictRlU2JFEiMkYnRjkvJStmb3JlZ3JvdW5kR1EoWzAsMCwwXUYnLyUpcmVhZG9ubHlHRj1GOUY5LyUlb3BlbkdRJyZsc3FiO0YnLyUmY2xvc2VHUScmcnNxYjtGJ0Y5">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSZzdGFydEdGKDckIiRTIiIiIzcjRi4=</Equation></Text-field>
 </Output>
@@ -160,58 +156,28 @@ finish := lhs(select(e-&gt;rhs(e)=&quot;E&quot;, [entries(tgrid,'pairs')])[]);</
 </Input>
 </Group>
 <Group hide-input="false" labelreference="L15" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">rot90 := d -&gt; [Re,Im](-I*(d[1]+d[2]*I));
-rot90c := d -&gt; [Re,Im](I*(d[1]+d[2]*I));
-
-dijkmaze := proc(start, direct, finish) #option trace;
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">rot90 := d -&gt; [Re,Im](-I*(d[1]+d[2]*I));rot90c := d -&gt; [Re,Im](I*(d[1]+d[2]*I));dijkmaze := proc(start, direct, finish) #option trace;
 local pq, validd, d, costsofar, path, cost, curr, cpos, cdir, t; 
 uses priqueue;
 global tgrid;
 costsofar := table(sparse=infinity):
-
+path := table(sparse={}):
 initialize(pq):
 insert([0, start,direct], pq):
-costsofar[start,direct] := 0:
-path[start,direct] := FAIL;
-
-validd := select(d-&gt;tgrid[finish-d]&lt;&gt;&quot;#&quot;, [[1,0],[0,1],[-1,0],[0,-1]]);
+costsofar[start,direct] := 0:path[start,direct] := {};validd := select(d-&gt;tgrid[finish-d]&lt;&gt;&quot;#&quot;, [[1,0],[0,1],[-1,0],[0,-1]]);
 
 while pq[0] &lt;&gt; 0 do
-
-   curr := extract(pq);
+   curr := extract(pq);
    cost := -1*curr[1];
    cpos := curr[2];
-
-   cdir := curr[3];
-
-   if tgrid[cpos] = &quot;#&quot; then error &quot;should not happen&quot;, cpos; end if;
-
-  # print(curr);
-
-   if cpos = finish and andseq(costsofar[finish,d]&lt;&gt;(infinity), d in validd) then
-      break;
+   cdir := curr[3];   if tgrid[cpos] = &quot;#&quot; then error &quot;should not happen&quot;, cpos; end if;  # print(curr);   if cpos = finish and andseq(costsofar[finish,d]&lt;&gt;(infinity), d in validd) then      break;
    end if;
-
-
-   if tgrid[cpos+cdir] &lt;&gt; &quot;#&quot; then    
-       if costsofar[cpos+cdir,cdir] &gt; cost+1 then
-           insert([-1*(cost+1),cpos+cdir,cdir], pq);
-           path[cpos+cdir,cdir] := [cpos, cdir];
-           costsofar[cpos+cdir,cdir] := cost+1;
-       end if;
-   end if;
-   
-   for t in [rot90,rot90c](cdir) do
-        if costsofar[cpos,t] &gt; cost+1000 then
-           path[cpos,t] := [cpos, cdir];
-           costsofar[cpos,t] := cost+1000;     
-           insert([-1*(cost+1000), cpos, t], pq);
-       end if;
-   end do;      
-      
-   
+   if tgrid[cpos+cdir] &lt;&gt; &quot;#&quot; then           if costsofar[cpos+cdir,cdir] &gt;= cost+1 then           if costsofar[cpos+cdir,cdir] &gt; cost+1 then               path[cpos+cdir,cdir] := {[cpos, cdir]};
+               costsofar[cpos+cdir,cdir] := cost+1;               insert([-1*(cost+1),cpos+cdir,cdir], pq);           else               path[cpos+cdir,cdir] union= {[cpos, cdir]};           end if;                  end if;   end if;      for t in [rot90,rot90c](cdir) do
+        if costsofar[cpos,t] &gt;= cost+1000 then           if costsofar[cpos,t] &gt; cost+1000 then               path[cpos,t] := {[cpos, cdir]};               costsofar[cpos,t] := cost+1000;               insert([-1*(cost+1000), cpos, t], pq);           else               path[cpos,t] union= {[cpos, cdir]};           end if;                      end if;
+   end do;           
 end do:
-return min([(seq(costsofar[finish,d], d in validd))]), path;
+return [seq([d,costsofar[finish,d]], d in validd)], path;
 end proc:</Text-field>
 </Input>
 <Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYoLUkjbWlHRiQ2JVEmcm90OTBGJy8lJ2l0YWxpY0dRJXRydWVGJy8lLG1hdGh2YXJpYW50R1EnaXRhbGljRictSSNtb0dGJDYtUSkmQXNzaWduO0YnL0YzUSdub3JtYWxGJy8lJmZlbmNlR1EmZmFsc2VGJy8lKnNlcGFyYXRvckdGPS8lKXN0cmV0Y2h5R0Y9LyUqc3ltbWV0cmljR0Y9LyUobGFyZ2VvcEdGPS8lLm1vdmFibGVsaW1pdHNHRj0vJSdhY2NlbnRHRj0vJSdsc3BhY2VHUSwwLjI3Nzc3NzhlbUYnLyUncnNwYWNlR0ZMLUYsNiVRImRGJ0YvRjItRjY2LVEmJm1hcDtGJ0Y5RjtGPi9GQUYxRkJGREZGRkhGSkZNLUYjNiYtSShtZmVuY2VkR0YkNiYtRiM2KC1GLDYlUSUmUmU7RicvRjBGPUY5LUY2Ni1RIixGJ0Y5RjsvRj9GMUZARkJGREZGRkgvRktRJjAuMGVtRicvRk5RLDAuMzMzMzMzM2VtRictRiw2JVElJkltO0YnRmpuRjkvJStmb3JlZ3JvdW5kR1EoWzAsMCwwXUYnLyUpcmVhZG9ubHlHRj1GOUY5LyUlb3BlbkdRJyZsc3FiO0YnLyUmY2xvc2VHUScmcnNxYjtGJy1GNjYtUTAmQXBwbHlGdW5jdGlvbjtGJ0Y5RjtGPkZARkJGREZGRkhGX28vRk5GYG8tRlk2JC1GIzYmLUkjbW5HRiQ2JFE2JnVtaW51czA7JkltYWdpbmFyeUk7RidGOS1GNjYtUScmc2RvdDtGJ0Y5RjtGPkZARkJGREZGRkhGX29GZHAtRlk2JC1GIzYmLUklbXN1YkdGJDYlRk8tRmpwNiRRIjFGJ0Y5LyUvc3Vic2NyaXB0c2hpZnRHUSIwRictRjY2LVEnJnBsdXM7RidGOUY7Rj5GQEZCRkRGRkZIL0ZLUSwwLjIyMjIyMjJlbUYnL0ZORmFyLUYjNiYtRmpwNiRRLSZJbWFnaW5hcnlJO0YnRjlGXXEtRmVxNiVGTy1GanA2JFEiMkYnRjlGanFGOUY5RjlGOUY5RjlGOQ==">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSZyb3Q5MEdGKGYqNiNJImRHRihGKDYkSSlvcGVyYXRvckdGKEkmYXJyb3dHRihGKC03JEkjUmVHRiZJI0ltR0YmNiMqJl4jISIiIiIiLCYmOSQ2I0Y8RjwqJl4jRjxGPCZGPzYjIiIjRjxGPEY8RihGKEYoNyNGLg==</Equation></Text-field>
@@ -220,21 +186,40 @@ end proc:</Text-field>
 </Output>
 </Group>
 <Group hide-input="false" labelreference="L17" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">score, pt := CodeTools:-Usage( dijkmaze(start, [0,1], finish) );</Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">score, pt := dijkmaze(start, [0,1], finish);</Text-field>
 </Input>
-<Output><Text-field style="Line Printed Output" layout="Line Printed Output">memory used=214.55MiB, alloc change=0 bytes, cpu time=3.02s, real time=3.13s, gc time=477.98ms
-</Text-field>
-</Output>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYqLUkjbWlHRiQ2JVEmc2NvcmVGJy8lJ2l0YWxpY0dRJXRydWVGJy8lLG1hdGh2YXJpYW50R1EnaXRhbGljRictSSNtb0dGJDYtUSgmY29tbWE7RicvRjNRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0YxLyUpc3RyZXRjaHlHRj0vJSpzeW1tZXRyaWNHRj0vJShsYXJnZW9wR0Y9LyUubW92YWJsZWxpbWl0c0dGPS8lJ2FjY2VudEdGPS8lJ2xzcGFjZUdRJjAuMGVtRicvJSdyc3BhY2VHUSwwLjMzMzMzMzNlbUYnLUYsNiVRI3B0RidGL0YyLUY2Ni1RKSZBc3NpZ247RidGOUY7L0Y/Rj1GQEZCRkRGRkZIL0ZLUSwwLjI3Nzc3NzhlbUYnL0ZORlgtSSNtbkdGJDYkUScxMTU1MDBGJ0Y5RjUtRiw2JVElcGF0aEYnRi9GMkY5">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+NiRJJnNjb3JlR0YoSSNwdEdGKDYkIicrYjZJJXBhdGhHNiMvSSdfbG9jYWxHRiZJLV9uNDY3NTkzNTg3MkdGKDckRjFGMg==</Equation></Text-field>
-</Output>
-</Group>
-<Group hide-input="false" labelreference="L22" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">ans1 := score;</Text-field>
-</Input>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVElYW5zMUYnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JI21vR0YkNi1RKSZBc3NpZ247RicvRjNRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0Y9LyUpc3RyZXRjaHlHRj0vJSpzeW1tZXRyaWNHRj0vJShsYXJnZW9wR0Y9LyUubW92YWJsZWxpbWl0c0dGPS8lJ2FjY2VudEdGPS8lJ2xzcGFjZUdRLDAuMjc3Nzc3OGVtRicvJSdyc3BhY2VHRkwtSSNtbkdGJDYkUScxMTU1MDBGJ0Y5Rjk=">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSVhbnMxR0YoIicrYjY3I0Yu</Equation></Text-field>
+<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYqLUkjbWlHRiQ2JVEmc2NvcmVGJy8lJ2l0YWxpY0dRJXRydWVGJy8lLG1hdGh2YXJpYW50R1EnaXRhbGljRictSSNtb0dGJDYtUSgmY29tbWE7RicvRjNRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0YxLyUpc3RyZXRjaHlHRj0vJSpzeW1tZXRyaWNHRj0vJShsYXJnZW9wR0Y9LyUubW92YWJsZWxpbWl0c0dGPS8lJ2FjY2VudEdGPS8lJ2xzcGFjZUdRJjAuMGVtRicvJSdyc3BhY2VHUSwwLjMzMzMzMzNlbUYnLUYsNiVRI3B0RidGL0YyLUY2Ni1RKSZBc3NpZ247RidGOUY7L0Y/Rj1GQEZCRkRGRkZIL0ZLUSwwLjI3Nzc3NzhlbUYnL0ZORlgtSShtZmVuY2VkR0YkNiYtRmVuNiYtRiM2KC1GZW42Ji1GIzYoLUkjbW5HRiQ2JFErJnVtaW51czA7MUYnRjktRjY2LVEiLEYnRjlGO0Y+RkBGQkZERkZGSEZKRk0tRmBvNiRRIjBGJ0Y5LyUrZm9yZWdyb3VuZEdRKFswLDAsMF1GJy8lKXJlYWRvbmx5R0Y9RjlGOS8lJW9wZW5HUScmbHNxYjtGJy8lJmNsb3NlR1EnJnJzcWI7RidGY28tRmBvNiRRJzExNTUwMEYnRjlGaW9GXHBGOUY5Rl5wRmFwRjlGXnBGYXBGNS1GLDYlUSVwYXRoRidGL0YyRjk=">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+NiRJJnNjb3JlR0YoSSNwdEdGKDYkNyM3JDckISIiIiIhIicrYjZJJXBhdGhHNiMvSSdfbG9jYWxHRiZJLV9uNDg5MzE0MzM5MkdGKDckRjFGNw==</Equation></Text-field>
 </Output>
 </Group>
 <Group hide-input="false" labelreference="L18" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">ans1 := min(map2(op,2,score));fins := map(e-&gt;[finish,e[1]], select(e-&gt;e[2]=ans1, score));</Text-field>
+</Input>
+<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVElYW5zMUYnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JI21vR0YkNi1RKSZBc3NpZ247RicvRjNRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0Y9LyUpc3RyZXRjaHlHRj0vJSpzeW1tZXRyaWNHRj0vJShsYXJnZW9wR0Y9LyUubW92YWJsZWxpbWl0c0dGPS8lJ2FjY2VudEdGPS8lJ2xzcGFjZUdRLDAuMjc3Nzc3OGVtRicvJSdyc3BhY2VHRkwtSSNtbkdGJDYkUScxMTU1MDBGJ0Y5Rjk=">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSVhbnMxR0YoIicrYjY3I0Yu</Equation></Text-field>
+</Output>
+<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVElZmluc0YnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JI21vR0YkNi1RKSZBc3NpZ247RicvRjNRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0Y9LyUpc3RyZXRjaHlHRj0vJSpzeW1tZXRyaWNHRj0vJShsYXJnZW9wR0Y9LyUubW92YWJsZWxpbWl0c0dGPS8lJ2FjY2VudEdGPS8lJ2xzcGFjZUdRLDAuMjc3Nzc3OGVtRicvJSdyc3BhY2VHRkwtSShtZmVuY2VkR0YkNiYtRlA2Ji1GIzYoLUZQNiYtRiM2KC1JI21uR0YkNiRRIjJGJ0Y5LUY2Ni1RIixGJ0Y5RjsvRj9GMUZARkJGREZGRkgvRktRJjAuMGVtRicvRk5RLDAuMzMzMzMzM2VtRictRmVuNiRRJDE0MEYnRjkvJStmb3JlZ3JvdW5kR1EoWzAsMCwwXUYnLyUpcmVhZG9ubHlHRj1GOUY5LyUlb3BlbkdRJyZsc3FiO0YnLyUmY2xvc2VHUScmcnNxYjtGJ0Zobi1GUDYmLUYjNigtRmVuNiRRKyZ1bWludXMwOzFGJ0Y5RmhuLUZlbjYkUSIwRidGOUZjb0Zmb0Y5RjlGaG9GW3BGY29GZm9GOUY5RmhvRltwRjlGaG9GW3BGOQ==">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSVmaW5zR0YoNyM3JDckIiIjIiRTIjckISIiIiIhNyNGLg==</Equation></Text-field>
+</Output>
+</Group>
+<Group hide-input="false" labelreference="L19" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">mark := table(sparse=0);mark[[finish,[]]] := 1;mark[[start,[]]] := 1; spots := DEQueue(fins):while not empty(spots) do    s := pop_back(spots);    for t in pt[s[]] do        if mark[t]=0 then            mark[t] := 1;            push_back(spots,t);        end if;    end do;end do:ans2 := nops(map2(op,1,{indices(mark,nolist)}) );</Text-field>
+</Input>
+<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYoLUkjbWlHRiQ2JVElbWFya0YnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JI21vR0YkNi1RKSZBc3NpZ247RicvRjNRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0Y9LyUpc3RyZXRjaHlHRj0vJSpzeW1tZXRyaWNHRj0vJShsYXJnZW9wR0Y9LyUubW92YWJsZWxpbWl0c0dGPS8lJ2FjY2VudEdGPS8lJ2xzcGFjZUdRLDAuMjc3Nzc3OGVtRicvJSdyc3BhY2VHRkwtRjY2LVEmdGFibGVGJ0Y5RjtGPkZARkJGREZGRkgvRktRJjAuMGVtRicvRk5GUy1GNjYtUTAmQXBwbHlGdW5jdGlvbjtGJ0Y5RjtGPkZARkJGREZGRkhGUkZULUkobWZlbmNlZEdGJDYkLUYjNigtRiM2Ji1GLDYlUSdzcGFyc2VGJ0YvRjItRjY2LVEpJmVxdWFscztGJ0Y5RjtGPkZARkJGREZGRkhGSkZNLUkjbW5HRiQ2JFEiMEYnRjlGOS1GNjYtUSIsRidGOUY7L0Y/RjFGQEZCRkRGRkZIRlIvRk5RLDAuMzMzMzMzM2VtRictRlk2JUY5LyUlb3BlbkdRJyZsc3FiO0YnLyUmY2xvc2VHUScmcnNxYjtGJy8lK2ZvcmVncm91bmRHUShbMCwwLDBdRicvJSlyZWFkb25seUdGPUY5RjlGOQ==">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSVtYXJrR0YoS0kmVEFCTEVHRiY2JC9JJ3NwYXJzZUdGKCIiITciUShwcHJpbnQwRig3Iz1GMUkmZmFsc2VHRiZFXFtsIQ==</Equation></Text-field>
+</Output>
+<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUklbXN1YkdGJDYlLUkjbWlHRiQ2JVElbWFya0YnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JKG1mZW5jZWRHRiQ2Ji1GIzYoLUY5NiYtRiM2KC1JI21uR0YkNiRRIjJGJy9GNlEnbm9ybWFsRictSSNtb0dGJDYtUSIsRidGRS8lJmZlbmNlR1EmZmFsc2VGJy8lKnNlcGFyYXRvckdGNC8lKXN0cmV0Y2h5R0ZNLyUqc3ltbWV0cmljR0ZNLyUobGFyZ2VvcEdGTS8lLm1vdmFibGVsaW1pdHNHRk0vJSdhY2NlbnRHRk0vJSdsc3BhY2VHUSYwLjBlbUYnLyUncnNwYWNlR1EsMC4zMzMzMzMzZW1GJy1GQjYkUSQxNDBGJ0ZFLyUrZm9yZWdyb3VuZEdRKFswLDAsMF1GJy8lKXJlYWRvbmx5R0ZNRkVGRS8lJW9wZW5HUScmbHNxYjtGJy8lJmNsb3NlR1EnJnJzcWI7RidGRy1GOTYlRkVGYm9GZW9GXW9GYG9GRUZFRmJvRmVvLyUvc3Vic2NyaXB0c2hpZnRHUSIwRictRkg2LVEpJkFzc2lnbjtGJ0ZFRksvRk9GTUZQRlJGVEZWRlgvRmVuUSwwLjI3Nzc3NzhlbUYnL0ZobkZicC1GQjYkUSIxRidGRUZF">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+JkklbWFya0dGKDYjNyQ3JCIiIyIkUyI3IiIiIjcjRjU=</Equation></Text-field>
+</Output>
+<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUklbXN1YkdGJDYlLUkjbWlHRiQ2JVElbWFya0YnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JKG1mZW5jZWRHRiQ2Ji1GIzYoLUY5NiYtRiM2KC1JI21uR0YkNiRRJDE0MEYnL0Y2USdub3JtYWxGJy1JI21vR0YkNi1RIixGJ0ZFLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0Y0LyUpc3RyZXRjaHlHRk0vJSpzeW1tZXRyaWNHRk0vJShsYXJnZW9wR0ZNLyUubW92YWJsZWxpbWl0c0dGTS8lJ2FjY2VudEdGTS8lJ2xzcGFjZUdRJjAuMGVtRicvJSdyc3BhY2VHUSwwLjMzMzMzMzNlbUYnLUZCNiRRIjJGJ0ZFLyUrZm9yZWdyb3VuZEdRKFswLDAsMF1GJy8lKXJlYWRvbmx5R0ZNRkVGRS8lJW9wZW5HUScmbHNxYjtGJy8lJmNsb3NlR1EnJnJzcWI7RidGRy1GOTYlRkVGYm9GZW9GXW9GYG9GRUZFRmJvRmVvLyUvc3Vic2NyaXB0c2hpZnRHUSIwRictRkg2LVEpJkFzc2lnbjtGJ0ZFRksvRk9GTUZQRlJGVEZWRlgvRmVuUSwwLjI3Nzc3NzhlbUYnL0ZobkZicC1GQjYkUSIxRidGRUZF">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+JkklbWFya0dGKDYjNyQ3JCIkUyIiIiM3IiIiIjcjRjU=</Equation></Text-field>
+</Output>
+<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVElYW5zMkYnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JI21vR0YkNi1RKSZBc3NpZ247RicvRjNRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0Y9LyUpc3RyZXRjaHlHRj0vJSpzeW1tZXRyaWNHRj0vJShsYXJnZW9wR0Y9LyUubW92YWJsZWxpbWl0c0dGPS8lJ2FjY2VudEdGPS8lJ2xzcGFjZUdRLDAuMjc3Nzc3OGVtRicvJSdyc3BhY2VHRkwtSSNtbkdGJDYkUSQ2NzlGJ0Y5Rjk=">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSVhbnMyR0YoIiR6JzcjRi4=</Equation></Text-field>
+</Output>
+</Group>
+<Group hide-input="false" labelreference="L20" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"></Text-field>
+</Input>
+</Group>
+<Group labelreference="L22" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">  </Text-field>
+</Input>
+</Group>
+<Group labelreference="L23" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"></Text-field>
 </Input>
 </Group>

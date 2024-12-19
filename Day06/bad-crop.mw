@@ -89,75 +89,29 @@
 </Task-table>
 <Task/>
 <Group hide-input="false" labelreference="L1" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">#restart;
-with(StringTools): s2i := s-&gt;sscanf(s,&quot;%d&quot;)[1]: clamp := (x,y,z)-&gt;max(x,min(y,z)):</Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"></Text-field>
 </Input>
-</Group>
-<Group hide-input="false" labelreference="L11" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">input := FileTools:-Text:-ReadFile(&quot;../../AdventOfCode_inputs/AoC-2024-06-input.txt&quot; ):</Text-field>
-</Input>
-</Group>
-<Group hide-input="false" labelreference="L12" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">input := &quot;....#.....
-.........#
-..........
-..#.......
-.......#..
-..........
-.#..^.....
-........#.
-#.........
-......#...
-&quot;:</Text-field>
-</Input>
-</Group>
-<Group hide-input="false" labelreference="L13" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"><Font encoding="UTF-8">ogrid := Array( map(Explode,Split(Trim(input), &quot;\134n&quot;)) );
-</Font>(m,n) := upperbound(ogrid);
-</Text-field>
-</Input>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUkqbWNvbXBsZXRlRzYjL0krbW9kdWxlbmFtZUc2IkksVHlwZXNldHRpbmdHSShfc3lzbGliR0YnNiQtSSVtcm93R0YkNiYtSSNtaUdGJDYlUSZvZ3JpZEYnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JI21vR0YkNi5RKSZBc3NpZ247RicvRjZRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0ZALyUpc3RyZXRjaHlHRkAvJSpzeW1tZXRyaWNHRkAvJShsYXJnZW9wR0ZALyUubW92YWJsZWxpbWl0c0dGQC8lJ2FjY2VudEdGQC8lJ2xzcGFjZUdRLDAuMjc3Nzc3OGVtRicvJSdyc3BhY2VHRk8vJSllcXVhbGl0eUdGQC1JKG1mZW5jZWRHRiQ2KC1GLDYmLUknbXRhYmxlR0YkNkAtSSRtdHJHRiQ2MS1JJG10ZEdGJDYqLUkjbXNHRiQ2I1EiLkYnLyUrZm9yZWdyb3VuZEdRKFswLDAsMF1GJy8lKXJlYWRvbmx5R0ZALyUpcm93YWxpZ25HUSFGJy8lLGNvbHVtbmFsaWduR0Znby8lK2dyb3VwYWxpZ25HRmdvLyUocm93c3BhbkdRIjFGJy8lK2NvbHVtbnNwYW5HRl5wRmluRmluRmluLUZqbjYqLUZdbzYjUSIjRidGYG9GY29GZW9GaG9Gam9GXHBGX3BGaW5GaW5GaW5GaW5GaW5GYG9GY29GZW9GaG9Gam8tRmduNjFGaW5GaW5GaW5GaW5GaW5GaW5GaW5GaW5GaW5GYXBGYG9GY29GZW9GaG9Gam8tRmduNjFGaW5GaW5GaW5GaW5GaW5GaW5GaW5GaW5GaW5GaW5GYG9GY29GZW9GaG9Gam8tRmduNjFGaW5GaW5GYXBGaW5GaW5GaW5GaW5GaW5GaW5GaW5GYG9GY29GZW9GaG9Gam8tRmduNjFGaW5GaW5GaW5GaW5GaW5GaW5GaW5GYXBGaW5GaW5GYG9GY29GZW9GaG9Gam9GaHAtRmduNjFGaW5GYXBGaW5GaW4tRmpuNiotRl1vNiNRIl5GJ0Zgb0Zjb0Zlb0Zob0Zqb0ZccEZfcEZpbkZpbkZpbkZpbkZpbkZgb0Zjb0Zlb0Zob0Zqby1GZ242MUZpbkZpbkZpbkZpbkZpbkZpbkZpbkZpbkZhcEZpbkZgb0Zjb0Zlb0Zob0Zqby1GZ242MUZhcEZpbkZpbkZpbkZpbkZpbkZpbkZpbkZpbkZpbkZgb0Zjb0Zlb0Zob0Zqby1GZ242MUZpbkZpbkZpbkZpbkZpbkZpbkZhcEZpbkZpbkZpbkZgb0Zjb0Zlb0Zob0Zqb0Zgb0Zjby8lJmFsaWduR1ElYXhpc0YnL0Zmb1EpYmFzZWxpbmVGJy9GaW9RJ2NlbnRlckYnL0ZbcFEnfGZybGVmdHxockYnLyUvYWxpZ25tZW50c2NvcGVHRjQvJSxjb2x1bW53aWR0aEdRJWF1dG9GJy8lJndpZHRoR0Zoci8lK3Jvd3NwYWNpbmdHUSYxLjBleEYnLyUuY29sdW1uc3BhY2luZ0dRJjAuOGVtRicvJSlyb3dsaW5lc0dRJW5vbmVGJy8lLGNvbHVtbmxpbmVzR0Zjcy8lJmZyYW1lR0Zjcy8lLWZyYW1lc3BhY2luZ0dRLDAuNGVtfjAuNWV4RicvJSplcXVhbHJvd3NHRkAvJS1lcXVhbGNvbHVtbnNHRkAvJS1kaXNwbGF5c3R5bGVHRkAvJSVzaWRlR1EmcmlnaHRGJy8lMG1pbmxhYmVsc3BhY2luZ0dGYHNGYG9GY29GPEY8L0krbXNlbWFudGljc0dGJFEpQXJyYXlbMl1GJy8lJW9wZW5HUScmbHNxYjtGJy8lJmNsb3NlR1EnJnJzcWI7RidGZnRGPC1GVTYoRldGYG9GY29GPC9GanRRIltGJy9GXXVRIl1GJw==">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSZvZ3JpZEdGKC1JJ1JUQUJMRUdGKDYlIjVDNnZ3QG9ETypvJC1JJ01BVFJJWEdGKDYjNyw3LC1JI21zRzYkRiYvSSttb2R1bGVuYW1lR0YoRiQ2I1EiLkYoRjdGN0Y3LUY4NiNRIiNGKEY3RjdGN0Y3Rjc3LEY3RjdGN0Y3RjdGN0Y3RjdGN0Y+NyxGN0Y3RjdGN0Y3RjdGN0Y3RjdGNzcsRjdGN0Y+RjdGN0Y3RjdGN0Y3Rjc3LEY3RjdGN0Y3RjdGN0Y3Rj5GN0Y3RkI3LEY3Rj5GN0Y3LUY4NiNRIl5GKEY3RjdGN0Y3Rjc3LEY3RjdGN0Y3RjdGN0Y3RjdGPkY3NyxGPkY3RjdGN0Y3RjdGN0Y3RjdGNzcsRjdGN0Y3RjdGN0Y3Rj5GN0Y3RjdJJkFycmF5R0YmNyMtRkw2Iy9JJCVpZEdGKEYx</Equation></Text-field>
-</Output>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYqLUkjbWlHRiQ2JVEibUYnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JI21vR0YkNi5RKCZjb21tYTtGJy9GM1Enbm9ybWFsRicvJSZmZW5jZUdRJmZhbHNlRicvJSpzZXBhcmF0b3JHRjEvJSlzdHJldGNoeUdGPS8lKnN5bW1ldHJpY0dGPS8lKGxhcmdlb3BHRj0vJS5tb3ZhYmxlbGltaXRzR0Y9LyUnYWNjZW50R0Y9LyUnbHNwYWNlR1EmMC4wZW1GJy8lJ3JzcGFjZUdRLDAuMzMzMzMzM2VtRicvJSllcXVhbGl0eUdGPS1GLDYlUSJuRidGL0YyLUY2Ni5RKSZBc3NpZ247RidGOUY7L0Y/Rj1GQEZCRkRGRkZIL0ZLUSwwLjI3Nzc3NzhlbUYnL0ZORlpGUC1JI21uR0YkNiRRIzEwRidGOUY1RmZuRjk=">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+NiRJIm1HRihJIm5HRig2JCIjNUYxNyRGMUYx</Equation></Text-field>
-</Output>
-</Group>
-<Group hide-input="false" labelreference="L14" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">member(&quot;^&quot;,ogrid,'gstart'): 
-gstart := [gstart];
-rot90 := p -&gt; [Re,Im]((p[1]+p[2]*I)*(-I));</Text-field>
-</Input>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVEnZ3N0YXJ0RicvJSdpdGFsaWNHUSV0cnVlRicvJSxtYXRodmFyaWFudEdRJ2l0YWxpY0YnLUkjbW9HRiQ2LlEpJkFzc2lnbjtGJy9GM1Enbm9ybWFsRicvJSZmZW5jZUdRJmZhbHNlRicvJSpzZXBhcmF0b3JHRj0vJSlzdHJldGNoeUdGPS8lKnN5bW1ldHJpY0dGPS8lKGxhcmdlb3BHRj0vJS5tb3ZhYmxlbGltaXRzR0Y9LyUnYWNjZW50R0Y9LyUnbHNwYWNlR1EsMC4yNzc3Nzc4ZW1GJy8lJ3JzcGFjZUdGTC8lKWVxdWFsaXR5R0Y9LUkobWZlbmNlZEdGJDYmLUYjNigtSSNtbkdGJDYkUSI3RidGOS1GNjYuUSIsRidGOUY7L0Y/RjFGQEZCRkRGRkZIL0ZLUSYwLjBlbUYnL0ZOUSwwLjMzMzMzMzNlbUYnRk8tRlc2JFEiNUYnRjkvJStmb3JlZ3JvdW5kR1EoWzAsMCwwXUYnLyUpcmVhZG9ubHlHRj1GOUY5LyUlb3BlbkdRJyZsc3FiO0YnLyUmY2xvc2VHUScmcnNxYjtGJ0Y5">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSdnc3RhcnRHRig3JCIiKCIiJjcjRi4=</Equation></Text-field>
-</Output>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYoLUkjbWlHRiQ2JVEmcm90OTBGJy8lJ2l0YWxpY0dRJXRydWVGJy8lLG1hdGh2YXJpYW50R1EnaXRhbGljRictSSNtb0dGJDYuUSkmQXNzaWduO0YnL0YzUSdub3JtYWxGJy8lJmZlbmNlR1EmZmFsc2VGJy8lKnNlcGFyYXRvckdGPS8lKXN0cmV0Y2h5R0Y9LyUqc3ltbWV0cmljR0Y9LyUobGFyZ2VvcEdGPS8lLm1vdmFibGVsaW1pdHNHRj0vJSdhY2NlbnRHRj0vJSdsc3BhY2VHUSwwLjI3Nzc3NzhlbUYnLyUncnNwYWNlR0ZMLyUpZXF1YWxpdHlHRj0tRiw2JVEicEYnRi9GMi1GNjYuUSYmbWFwO0YnRjlGO0Y+L0ZBRjFGQkZERkZGSEZKRk1GTy1GIzYmLUkobWZlbmNlZEdGJDYmLUYjNigtRiw2JVElJlJlO0YnL0YwRj1GOS1GNjYuUSIsRidGOUY7L0Y/RjFGQEZCRkRGRkZIL0ZLUSYwLjBlbUYnL0ZOUSwwLjMzMzMzMzNlbUYnRk8tRiw2JVElJkltO0YnRlxvRjkvJStmb3JlZ3JvdW5kR1EoWzAsMCwwXUYnLyUpcmVhZG9ubHlHRj1GOUY5LyUlb3BlbkdRJyZsc3FiO0YnLyUmY2xvc2VHUScmcnNxYjtGJy1GNjYuUTAmQXBwbHlGdW5jdGlvbjtGJ0Y5RjtGPkZARkJGREZGRkhGYW8vRk5GYm9GTy1GZW42JC1GIzYmLUkjbW5HRiQ2JFE2JnVtaW51czA7JkltYWdpbmFyeUk7RidGOS1GNjYuUScmc2RvdDtGJ0Y5RjtGPkZARkJGREZGRkhGYW9GZnBGTy1GZW42JC1GIzYmLUklbXN1YkdGJDYlRlEtRlxxNiRRIjFGJ0Y5LyUvc3Vic2NyaXB0c2hpZnRHUSIwRictRjY2LlEnJnBsdXM7RidGOUY7Rj5GQEZCRkRGRkZIL0ZLUSwwLjIyMjIyMjJlbUYnL0ZORmNyRk8tRiM2Ji1GXHE2JFEtJkltYWdpbmFyeUk7RidGOUZfcS1GZ3E2JUZRLUZccTYkUSIyRidGOUZcckY5RjlGOUY5RjlGOUY5">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSZyb3Q5MEdGKGYqNiNJInBHRihGKDYkSSlvcGVyYXRvckdGKEkmYXJyb3dHRihGKC03JEkjUmVHRiZJI0ltR0YmNiMqJl4jISIiIiIiLCYmOSQ2I0Y8RjwqJl4jRjxGPCZGPzYjIiIjRjxGPEY8RihGKEYoNyNGLg==</Equation></Text-field>
-</Output>
 </Group>
 <Group hide-input="false" labelreference="L15" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">
 gdir := [-1, 0]; # starting orientation ^
 gpos := gstart;
-grid := Array(0..m+1,0..n+1,()-&gt;&quot;.&quot;):
-grid[1..m,1..n] := ogrid:
+grid := copy(ogrid):
 gpath := table();
 gpath[gpos, gdir] := true;
 for count from 0 to n^2 do # m=n
-    grid[gpos[]] := &quot;X&quot;;
-    gnew := gpos +~ gdir;
-    if map2(clamp, 1, gnew,m) &lt;&gt; gnew then break; end if;
-    if grid[gnew[]]=&quot;#&quot; then
+    grid[gpos[]] := -1.;
+    if map2(clamp, 1, gnew,m) &lt;&gt; gnew then     if grid[gnew[]]=1. then
     # rotate
         gdir := rot90(gdir);
-#        print(&quot;rotate&quot;, gdir);
     else
-#        print(&quot;forward&quot;, gdir);
         gpos := gnew;
-
-            gpath[gpos, gdir] := true;
-
+        gpath[gpos, gdir] := true;
     end if;
     
 end do:
 count;
-ans1 := numboccur(&quot;X&quot;, convert(grid[1..m,1..n],list));</Text-field>
+ans1 := numboccur(-1, round~(convert(grid[1..m,1..n],list)));</Text-field>
 </Input>
 <Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVElZ2RpckYnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JI21vR0YkNi5RKSZBc3NpZ247RicvRjNRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0Y9LyUpc3RyZXRjaHlHRj0vJSpzeW1tZXRyaWNHRj0vJShsYXJnZW9wR0Y9LyUubW92YWJsZWxpbWl0c0dGPS8lJ2FjY2VudEdGPS8lJ2xzcGFjZUdRLDAuMjc3Nzc3OGVtRicvJSdyc3BhY2VHRkwvJSllcXVhbGl0eUdGPS1JKG1mZW5jZWRHRiQ2Ji1GIzYoLUkjbW5HRiQ2JFErJnVtaW51czA7MUYnRjktRjY2LlEiLEYnRjlGOy9GP0YxRkBGQkZERkZGSC9GS1EmMC4wZW1GJy9GTlEsMC4zMzMzMzMzZW1GJ0ZPLUZXNiRRIjBGJ0Y5LyUrZm9yZWdyb3VuZEdRKFswLDAsMF1GJy8lKXJlYWRvbmx5R0Y9RjlGOS8lJW9wZW5HUScmbHNxYjtGJy8lJmNsb3NlR1EnJnJzcWI7RidGOQ==">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSVnZGlyR0YoNyQhIiIiIiE3I0Yu</Equation></Text-field>
 </Output>
@@ -173,90 +127,6 @@ ans1 := numboccur(&quot;X&quot;, convert(grid[1..m,1..n],list));</Text-field>
 </Output>
 </Group>
 <Group hide-input="false" labelreference="L21" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">numelems(gpath); </Text-field>
-</Input>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUkjbW5HNiMvSSttb2R1bGVuYW1lRzYiSSxUeXBlc2V0dGluZ0dJKF9zeXNsaWJHRic2JFEjNDVGJy8lLG1hdGh2YXJpYW50R1Enbm9ybWFsRic=">IiNY</Equation></Text-field>
-</Output>
-</Group>
-<Group hide-input="false" labelreference="L19" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">cands := {remove(pp-&gt;grid[pp[]]=&quot;#&quot; or map2(clamp, 1, pp,m) &lt;&gt; pp, map(pp-&gt;pp[1], [indices(gpath)]))[]} minus {gstart}: nops(cands);</Text-field>
-</Input>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUkjbW5HNiMvSSttb2R1bGVuYW1lRzYiSSxUeXBlc2V0dGluZ0dJKF9zeXNsaWJHRic2JFEjNDBGJy8lLG1hdGh2YXJpYW50R1Enbm9ybWFsRic=">IiNT</Equation></Text-field>
-</Output>
-</Group>
-<Group hide-input="false" labelreference="L32" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">acands := {remove(pp-&gt;grid[pp[]]=&quot;#&quot;, [seq(seq([i,j],i=1..m),j=1..n)])[]} minus {gstart}: nops(acands);</Text-field>
-</Input>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUkjbW5HNiMvSSttb2R1bGVuYW1lRzYiSSxUeXBlc2V0dGluZ0dJKF9zeXNsaWJHRic2JFEjOTFGJy8lLG1hdGh2YXJpYW50R1Enbm9ybWFsRic=">IiMiKg==</Equation></Text-field>
-</Output>
-</Group>
-<Group labelreference="L22" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"># for every point along the path, try adding a &quot;#&quot; and see if we land off the grid</Text-field>
-</Input>
-</Group>
-<Group hide-input="false" labelreference="L24" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">walkpath := proc(newb)
-global ogrid, gstart, m, n;
-local gdir, gpos, grid, count, gpath, gnew;
-
-gdir := [-1, 0]; # starting orientation ^
-gpos := gstart;
-grid := Array(1..m,1..n,()-&gt;&quot;.&quot;):
-grid[1..m,1..n] := ogrid:
-if grid[newb[]] = &quot;#&quot; or newb=gstart then error &quot;already&quot;, newb; end if;
-grid[newb[]] := &quot;#&quot;;
-count := 0;
-gpath := table();
-for count to 12*n^2 do 
-    gnew := gpos +~ gdir;
-    if map2(clamp, 1, gnew, m) &lt;&gt; gnew then return false; break; end if; # off grid
-    if grid[gnew[]]=&quot;#&quot; then
-    # rotate, don't step yet
-        gdir := rot90(gdir);
-    else
-        gpos := gnew;
-        if gpath[gpos, gdir] = true then break; end if; # looped
-        gpath[gpos, gdir] := true;
-    end if;    
-end do:
-#printf(&quot;%a=%a, &quot;,count,newb);
-return evalb( map2(clamp, 1, gpos,m) = gpos );
-end proc:</Text-field>
-</Input>
-</Group>
-<Group hide-input="false" labelreference="L26" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">ttt := time[real]():
-good := select(walkpath, cands):
-ans2 := nops(good);
-&quot;time&quot;=(time[real]()-ttt) *Unit(seconds);</Text-field>
-</Input>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVElYW5zMkYnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JI21vR0YkNi5RKSZBc3NpZ247RicvRjNRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0Y9LyUpc3RyZXRjaHlHRj0vJSpzeW1tZXRyaWNHRj0vJShsYXJnZW9wR0Y9LyUubW92YWJsZWxpbWl0c0dGPS8lJ2FjY2VudEdGPS8lJ2xzcGFjZUdRLDAuMjc3Nzc3OGVtRicvJSdyc3BhY2VHRkwvJSllcXVhbGl0eUdGPS1JI21uR0YkNiRRIjZGJ0Y5Rjk=">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSVhbnMyR0YoIiInNyNGLg==</Equation></Text-field>
-</Output>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbXNHRiQ2I1EldGltZUYnLUkjbW9HRiQ2LlEpJmVxdWFscztGJy8lLG1hdGh2YXJpYW50R1Enbm9ybWFsRicvJSZmZW5jZUdRJmZhbHNlRicvJSpzZXBhcmF0b3JHRjgvJSlzdHJldGNoeUdGOC8lKnN5bW1ldHJpY0dGOC8lKGxhcmdlb3BHRjgvJS5tb3ZhYmxlbGltaXRzR0Y4LyUnYWNjZW50R0Y4LyUnbHNwYWNlR1EsMC4yNzc3Nzc4ZW1GJy8lJ3JzcGFjZUdGRy8lKWVxdWFsaXR5R0Y4LUYjNiYtSSNtbkdGJDYkUSYwLjAzMEYnRjMtRjA2LlExJkludmlzaWJsZVRpbWVzO0YnRjNGNkY5RjtGPUY/RkFGQy9GRlEmMC4wZW1GJy9GSUZWRkotSShtZmVuY2VkR0YkNigtRiM2Ji1JI21pR0YkNiVRInNGJy8lJ2l0YWxpY0dRJXRydWVGJy9GNFEnaXRhbGljRicvJStmb3JlZ3JvdW5kR1EoWzAsMCwwXUYnLyUpcmVhZG9ubHlHRjhGM0YzL0krbXNlbWFudGljc0dGJFElVW5pdEYnLyUlb3BlbkdRKCZsb2JyaztGJy8lJmNsb3NlR1EoJnJvYnJrO0YnRmVvRjNGMw==">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyMvUSV0aW1lRigsJC1JJVVuaXRHNiMvSSdfbG9jYWxHRiZJMl9uMTM3NTM0OTg0Njk5NTUyR0YoNiNJInNHNiRJKDotMjUwMDVHNiRRRi9ob21lL2ptYXkvbWFwbGUvbWFpbi9teWxpYi9tYXBsZS5tbGFGKC9GM0kyX24xMzc1MzUxMzM4MzI3NjhHRigvRjNJMl9uMTM3NTM1MTMzODMyNzM2R0YoJCIjSSEiJDcjL0YtLCRLSSVVbml0RzYkL0krbW9kdWxlbmFtZUdGKEkmVW5pdHNHNiRGJ0YmRiZGNS1JK1VuaXRTdHJ1Y3RHRkc2JSIiIlEnc2Vjb25kRihRI1NJRihGPw==</Equation></Text-field>
-</Output>
-</Group>
-<Group labelreference="L27" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"># 1900 0:19 (ten minute time out)</Text-field>
-</Input>
-</Group>
-<Group labelreference="L28" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"># Sample answer: [7, 4],[8, 7],[8, 8],[9, 2],[9, 4],[10, 8]</Text-field>
-</Input>
-</Group>
-<Group hide-input="false" labelreference="L29" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">(*
-# should be faster, but overhead kills it without refactoring it as a count
-Grid:-Setup(&quot;local&quot;, numnodes=8);
-infolevel[Grid:-Map] := 3;
-ttt := time[real]():
-good := ( Grid:-Map[tasksize=681](p-&gt;[walkpath(p),p],cands) ):
-good := select(p-&gt;p[1], good):
-ans2p := nops(good);
-&quot;time&quot;=(time[real]()-ttt)*Unit(seconds);
-*)</Text-field>
-</Input>
-</Group>
-<Group hide-input="false" labelreference="L30" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"></Text-field>
 </Input>
 </Group>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Worksheet>
-<Version major="2023" minor="2"/>
+<Version major="2025" minor="0"/>
 <Label-Scheme value="2" prefix=""/>
 <View-Properties presentation="false" autoexpanding_sections="true" UserProfileName="Maple Default Profile" NumericFormat-ApplyInteger="true" NumericFormat-ApplyRational="true" NumericFormat-ApplyExponent="false" editable="true">
 </View-Properties>
-<MapleNet-Properties prettyprint="3" warnlevel="3" compactdisplay="false" preplot="" helpbrowser="standard" displayprecision="-1" echo="1" scientificx="true" unitattributes="&quot;fontweight&quot; = &quot;bold&quot;" imaginaryunit="I" longdelim="true" elisiontermsthreshold="10000" elisiondigitsafter="100" elisiondigitsbefore="100" plotdevice="inline" errorbreak="1" plotoptions="" plotdriver="opengl" quiet="false" elisiontermsbefore="100" elisiontermsafter="100" historytimestamp="false" screenwidth="79" indentamount="4" plotoutput="terminal" screenpixelheight="1152" rtablesize="[10, 10]" useclientjvm="true" format="worksheet" labelwidth="20" postplot="" typesetting="extended" ansi="false" ansicolor="[]" elisiondigitsthreshold="10000" showassumed="1" ansilprint="false" trailingsemicolon="true" errorcursor="false" labelling="true" screenheight="25" prompt="&gt; " verboseproc="1" latexwidth="8.0" ShowLabels="true"/>
+<MapleNet-Properties prettyprint="3" warnlevel="3" compactdisplay="false" preplot="" helpbrowser="standard" displayprecision="-1" echo="1" scientificx="true" unitattributes="&quot;fontweight&quot; = &quot;bold&quot;" imaginaryunit="I" longdelim="true" elisiontermsthreshold="10000" elisiondigitsafter="100" elisiondigitsbefore="100" plotdevice="inline" errorbreak="1" plotoptions="" plotdriver="opengl" quiet="false" elisiontermsbefore="100" elisiontermsafter="100" historytimestamp="false" screenwidth="79" indentamount="4" plotoutput="terminal" screenpixelheight="1440" rtablesize="[10, 10]" useclientjvm="true" format="worksheet" labelwidth="20" postplot="" typesetting="extended" ansi="false" ansicolor="[]" elisiondigitsthreshold="10000" showassumed="1" ansilprint="false" trailingsemicolon="true" errorcursor="false" labelling="true" screenheight="25" prompt="&gt; " verboseproc="2" latexwidth="8.0" ShowLabels="true"/>
 <Styles>
 <Font name="Heading 1" background="[255,255,255]" bold="true" executable="false" family="Times New Roman" foreground="[0,0,0]" italic="false" opaque="false" readonly="false" size="18" subscript="false" superscript="false" underline="false" strikethrough="false" placeholder="false"/>
 <Font name="Warning" background="[255,255,255]" bold="false" executable="false" family="Courier New" foreground="[0,0,255]" italic="false" opaque="false" readonly="true" size="12" subscript="false" superscript="false" underline="false" strikethrough="false" placeholder="false"/>
@@ -131,12 +131,15 @@ with(StringTools): s2i := s-&gt;sscanf(s,&quot;%d&quot;)[1]:</Text-field>
 </Input>
 </Group>
 <Group hide-input="false" labelreference="L14" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">ogrid := table([seq(c=&quot;#&quot;,c in bytes[1..tm]), seq([-1,i]=&quot;$&quot;, i=-1..dim[2]+1),seq([dim[1]+1,i]=&quot;$&quot;, i=-1..dim[2]+1),seq([i,dim[2]+1]=&quot;$&quot;, i=-1..dim[1]+1),seq([i,-1]=&quot;$&quot;, i=-1..dim[1]+1)], sparse=&quot;.&quot;):start := [0,0];finish := dim;</Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">ogrid := table([seq(c=&quot;#&quot;,c in bytes[1..tm]), 
+seq([-1,i]=&quot;$&quot;, i=-1..dim[2]+1),
+seq([dim[1]+1,i]=&quot;$&quot;, i=-1..dim[2]+1),
+seq([i,dim[2]+1]=&quot;$&quot;, i=-1..dim[1]+1),
+seq([i,-1]=&quot;$&quot;, i=-1..dim[1]+1)],
+ sparse=&quot;.&quot;):
+start := [0,0];
+finish := dim;</Text-field>
 </Input>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVEmc3RhcnRGJy8lJ2l0YWxpY0dRJXRydWVGJy8lLG1hdGh2YXJpYW50R1EnaXRhbGljRictSSNtb0dGJDYtUSkmQXNzaWduO0YnL0YzUSdub3JtYWxGJy8lJmZlbmNlR1EmZmFsc2VGJy8lKnNlcGFyYXRvckdGPS8lKXN0cmV0Y2h5R0Y9LyUqc3ltbWV0cmljR0Y9LyUobGFyZ2VvcEdGPS8lLm1vdmFibGVsaW1pdHNHRj0vJSdhY2NlbnRHRj0vJSdsc3BhY2VHUSwwLjI3Nzc3NzhlbUYnLyUncnNwYWNlR0ZMLUkobWZlbmNlZEdGJDYmLUYjNigtSSNtbkdGJDYkUSIwRidGOS1GNjYtUSIsRidGOUY7L0Y/RjFGQEZCRkRGRkZIL0ZLUSYwLjBlbUYnL0ZOUSwwLjMzMzMzMzNlbUYnRlQvJStmb3JlZ3JvdW5kR1EoWzAsMCwwXUYnLyUpcmVhZG9ubHlHRj1GOUY5LyUlb3BlbkdRJyZsc3FiO0YnLyUmY2xvc2VHUScmcnNxYjtGJ0Y5">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSZzdGFydEdGKDckIiIhRi83I0Yu</Equation></Text-field>
-</Output>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVEnZmluaXNoRicvJSdpdGFsaWNHUSV0cnVlRicvJSxtYXRodmFyaWFudEdRJ2l0YWxpY0YnLUkjbW9HRiQ2LVEpJkFzc2lnbjtGJy9GM1Enbm9ybWFsRicvJSZmZW5jZUdRJmZhbHNlRicvJSpzZXBhcmF0b3JHRj0vJSlzdHJldGNoeUdGPS8lKnN5bW1ldHJpY0dGPS8lKGxhcmdlb3BHRj0vJS5tb3ZhYmxlbGltaXRzR0Y9LyUnYWNjZW50R0Y9LyUnbHNwYWNlR1EsMC4yNzc3Nzc4ZW1GJy8lJ3JzcGFjZUdGTC1JKG1mZW5jZWRHRiQ2Ji1GIzYoLUkjbW5HRiQ2JFEjNzBGJ0Y5LUY2Ni1RIixGJ0Y5RjsvRj9GMUZARkJGREZGRkgvRktRJjAuMGVtRicvRk5RLDAuMzMzMzMzM2VtRidGVC8lK2ZvcmVncm91bmRHUShbMCwwLDBdRicvJSlyZWFkb25seUdGPUY5RjkvJSVvcGVuR1EnJmxzcWI7RicvJSZjbG9zZUdRJyZyc3FiO0YnRjk=">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSdmaW5pc2hHRig3JCIjcUYvNyNGLg==</Equation></Text-field>
-</Output>
 </Group>
 <Group hide-input="false" labelreference="L21" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">grid := copy(ogrid):</Text-field>
@@ -147,105 +150,39 @@ with(StringTools): s2i := s-&gt;sscanf(s,&quot;%d&quot;)[1]:</Text-field>
 global grid;
     for i from 0 to dim[1] do
         printf(cat(&quot;&quot;,seq(grid[[i,j]]<Font encoding="UTF-8">,j=0..dim[2]),&quot;\134n&quot;));
-    </Font>end do;
+</Font>    end do;
     <Font encoding="UTF-8">printf(&quot;\134n\134n&quot;);</Font>
-end proc:render();</Text-field>
+end proc:
+render();</Text-field>
 </Input>
-<Output><Text-field style="Line Printed Output" layout="Line Printed Output">.......#.........#.....#...............................................
-.#####.#########.#.###.#...............................................
-...#.#.........#.#.....................................................
-.#.#.#.#######.#..##..##.....#.#.......................................
-.#.#...#.....#.....#.........#.........................................
-.#.#.##..###.#####.#######.....#.......................................
-.#.#...#...#...#.........#.#...#.......................................
-##.#####.#####.#.#######.#.#...#.#...#.................................
-...#.....#.....#...#...#.#.#...#.......................................
-.###.#####.###..####...###.............................................
-.#...#.....#...#...........#.....#.....................................
-.#.##..#####.##..#.#....####...........................................
-.#...#.#.....#...#.....#...............................................
-.###.#.#######..#.##.#.##..#...........................................
-.#...#.......#...#...#...#.............................................
-.#.#..######.###.#.#####.#..........#..................................
-.#.#.....#.....#...#...#.#.....#.......................................
-.#..##.###.###..####.#.#..#.##..#......................................
-.......#...#.#.#.....#.#.#.............................................
-.#######.###.#.#####.#.#.#........#....................................
-.#.......#...#.......#.#...#.#.........................................
-##.######..#.#########.##.##.................#.........................
-...#.......#.........#.#.#.............#...............................
-.#####.###.###.#...###.#.#.............................................
-.........#...#.#.....#...#.....................#.#.....................
-...##.##..............##.#.#.........#......##.#.#.....................
-...#.....#...#.....#.....#...............#.....#.#.....................
-.##........###.....#######.............#.#....####.....................
-...................#.....#...............#...#.........................
-...#....#......#.....###.#.............####..#.#.#.....................
-.....................#...............#.......#...#.....................
-...........#.........................#.#########.#.....................
-.................#.................#.#.#.........#.....................
-#........#...........................#.#.#.#######.............#.....##
-.......................................#.#.#...#.......................
-.....................#...............#.#.###.#.###......#..............
-.....................................#.#.#...#...#.#...........#...#...
-..................................#..#.#.#.#####.#..#....#.##.###.##.#.
-.....................................#.#.......#.#.#.........#.........
-..............................#..#####.#.#######.#.#.....###.#...######
-.............................#...#.....#.#.....#.#...#...#.#.....#.....
-...........................#...###.#####.#.#.#.#.########..#.#####.###.
-.................................#.#.#...#.#.#.#.......#.....#.....#.#.
-..............................####.#.#.##..#...##..###.#######.#####.#.
-...........................#...#...#.#...#.#.#...#...#.#.............#.
-............................##.#.###.#.###.#.###.###.#.#.######.###.##.
-.............................#...#.....#...#.....#...#.#.#.....#...#...
-.......#...................#.#.#.#######.###.#########.#.#.#.###.#.#.#.
-.............................#...........#...#...#...#.......#...#.#.#.
-......................................####.#.#.#.#.#.#########..##.#.#.
-...........................................#.#.#...#.....#.....#.#.#.#.
-............................#...........#..#.#.#########.#.#####.#.#.##
-.........................................#.....#.....#.#...#...#...#...
-......................................####.##..#..##.#.#######.#.#####.
-.........................................#.....#.....#.........#...#...
-.................................####....###...#.#.#.#.########.##.#.#.
-.........................................#.#...#.#.#...#.......#...#.#.
-..............................#..#.....#.#.#####.#.#####.#####.#.##..##
-...................................#...#.#.......#.#.....#...#...#.#...
-.........................#...#.......###.#.####.##.#.####.##.#####.#.#.
-.....................................#...#.....#...#.#.....#.......#.#.
-...............................#..#.#...##.#####.#.#.#.###.#.#####.#.#.
-.......................................#...#.....#.#...#.#.#.....#...#.
-.........................######..#.#######.#.###########.#.#####.#.#.#.
-.........................#.......#.......#.#.............#...#...#...#.
-.........................#...#.##.######.#..############..##.......#.#.
-.........................#...#.....#.....#.#...........#.#.........#.#.
-...........................#######.#.#####.#.##...##..##.#.########.##.
-.........................#.#.....#...#...#.........#.#...#.#...#.....#.
-.......................###.#.####.####.###...........#.###.#.#.#.###.#.
-...........................#.........................#.......#...#.....
-
-
-</Text-field>
-</Output>
 </Group>
 <Group hide-input="false" labelreference="L15" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">Astar := proc(grid, start, finish) #option trace;
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">DFS := proc(grid, start, finish) #option trace;
 local pq, costsofar, path, cost, pos, d, newcost, newpos; 
-uses priqueue;
+
 costsofar := table(sparse=infinity):
 
 path := table(sparse={}):
-initialize(pq):
-insert([0, start], pq):
+pq := DEQueue();
+push_back(pq, start):
 costsofar[start] := 0:
 
-while pq[0] &lt;&gt; 0 do
+while not empty(pq) do
 
-   (cost,pos) := extract(pq)[];
-   cost := costsofar[pos];
-   if pos = finish then
+   pos := pop_back(pq);
+   cost := costsofar[pos];
+   if pos = finish then
       break;
    end if;
-   for d in [[0,1],[1,0],[0,-1],[-1,0]] do       newpos := pos+d;       newcost := cost+1;       if grid[newpos] =&quot;.&quot; and newcost &lt; costsofar[newpos] then           #print(&quot;insert&quot;, newpos=grid[newpos], newcost);           insert([-newcost-add(abs~(finish-newpos)), newpos], pq);           costsofar[newpos] := newcost;               end if;   end do;
+   for d in [[0,1],[1,0],[0,-1],[-1,0]] do
+       newpos := pos+d;
+       newcost := cost+1;
+       if grid[newpos] =&quot;.&quot; and newcost &lt; costsofar[newpos] then
+           #print(&quot;insert&quot;, newpos=grid[newpos], newcost);
+           push_back(pq, newpos);
+           costsofar[newpos] := newcost;        
+       end if;
+   end do;
  
 end do:
 return costsofar[finish];
@@ -253,17 +190,27 @@ end proc:</Text-field>
 </Input>
 </Group>
 <Group hide-input="false" labelreference="L16" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">ans1 := Astar(grid, start, finish);</Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">ans1 := DFS(grid, start, finish);
+</Text-field>
 </Input>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVElYW5zMUYnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JI21vR0YkNi1RKSZBc3NpZ247RicvRjNRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0Y9LyUpc3RyZXRjaHlHRj0vJSpzeW1tZXRyaWNHRj0vJShsYXJnZW9wR0Y9LyUubW92YWJsZWxpbWl0c0dGPS8lJ2FjY2VudEdGPS8lJ2xzcGFjZUdRLDAuMjc3Nzc3OGVtRicvJSdyc3BhY2VHRkwtSSNtbkdGJDYkUSQyODJGJ0Y5Rjk=">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSVhbnMxR0YoIiQjRzcjRi4=</Equation></Text-field>
-</Output>
 </Group>
 <Group hide-input="false" labelreference="L17" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">searchp := proc(t)local grid, i,c;grid := table([seq(c=&quot;#&quot;,c in bytes[1..t]), 
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">searchp := proc(t)
+local grid, i,c;
+
+grid := table([seq(c=&quot;#&quot;,c in bytes[1..t]), 
                seq([-1,i]=&quot;$&quot;, i=-1..dim[2]+1),
                seq([dim[1]+1,i]=&quot;$&quot;, i=-1..dim[2]+1),
                seq([i,dim[2]+1]=&quot;$&quot;, i=-1..dim[1]+1),
-               seq([i,-1]=&quot;$&quot;, i=-1..dim[1]+1)], sparse=&quot;.&quot;):c :=  Astar(grid, start, finish);if c &lt;&gt; infinity then    return true;else    return false;end if;end proc:</Text-field>
+               seq([i,-1]=&quot;$&quot;, i=-1..dim[1]+1)], sparse=&quot;.&quot;):
+
+c :=  DFS(grid, start, finish);
+if c &lt;&gt; infinity then
+    return true;
+else
+    return false;
+end if;
+end proc:</Text-field>
 </Input>
 </Group>
 <Group hide-input="false" labelreference="L20" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
@@ -271,12 +218,19 @@ end proc:</Text-field>
 </Input>
 </Group>
 <Group hide-input="false" labelreference="L22" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"># Binary Search!space := [1025, nops(bytes)];while space[1]&lt;&gt;space[2] do    p := space[1]+floor((space[2]-space[1])/2);    if searchp(p) then       space := [p+1, space[2]];    else       space := [space[1], p];    end if;end do:ans2 := nprintf(&quot;%d,%d&quot;,bytes[space[1]][]);</Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"># Binary Search!
+space := [1025, nops(bytes)];
+while space[1]&lt;&gt;space[2] do
+    p := space[1]+floor((space[2]-space[1])/2);
+    if searchp(p) then
+       space := [p+1, space[2]];
+    else
+       space := [space[1], p];
+    end if;
+end do:
+
+ans2 := nprintf(&quot;%d,%d&quot;,bytes[space[1]][]);</Text-field>
 </Input>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVEmc3BhY2VGJy8lJ2l0YWxpY0dRJXRydWVGJy8lLG1hdGh2YXJpYW50R1EnaXRhbGljRictSSNtb0dGJDYtUSkmQXNzaWduO0YnL0YzUSdub3JtYWxGJy8lJmZlbmNlR1EmZmFsc2VGJy8lKnNlcGFyYXRvckdGPS8lKXN0cmV0Y2h5R0Y9LyUqc3ltbWV0cmljR0Y9LyUobGFyZ2VvcEdGPS8lLm1vdmFibGVsaW1pdHNHRj0vJSdhY2NlbnRHRj0vJSdsc3BhY2VHUSwwLjI3Nzc3NzhlbUYnLyUncnNwYWNlR0ZMLUkobWZlbmNlZEdGJDYmLUYjNigtSSNtbkdGJDYkUSUxMDI1RidGOS1GNjYtUSIsRidGOUY7L0Y/RjFGQEZCRkRGRkZIL0ZLUSYwLjBlbUYnL0ZOUSwwLjMzMzMzMzNlbUYnLUZVNiRRJTM0NTBGJ0Y5LyUrZm9yZWdyb3VuZEdRKFswLDAsMF1GJy8lKXJlYWRvbmx5R0Y9RjlGOS8lJW9wZW5HUScmbHNxYjtGJy8lJmNsb3NlR1EnJnJzcWI7RidGOQ==">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSZzcGFjZUdGKDckIiVENSIlXU03I0Yu</Equation></Text-field>
-</Output>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYmLUkjbWlHRiQ2JVElYW5zMkYnLyUnaXRhbGljR1EldHJ1ZUYnLyUsbWF0aHZhcmlhbnRHUSdpdGFsaWNGJy1JI21vR0YkNi1RKSZBc3NpZ247RicvRjNRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0Y9LyUpc3RyZXRjaHlHRj0vJSpzeW1tZXRyaWNHRj0vJShsYXJnZW9wR0Y9LyUubW92YWJsZWxpbWl0c0dGPS8lJ2FjY2VudEdGPS8lJ2xzcGFjZUdRLDAuMjc3Nzc3OGVtRicvJSdyc3BhY2VHRkwtRiw2JVEmNjQsMjlGJ0YvRjJGOQ==">LV9JLFR5cGVzZXR0aW5nRzYkJSpwcm90ZWN0ZWRHSShfc3lzbGliRzYiSSxtcHJpbnRzbGFzaEdGKDYkNyM+SSVhbnMyR0YoSSY2NCwyOUdGKDcjRi4=</Equation></Text-field>
-</Output>
 </Group>
 <Group labelreference="L23" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"></Text-field>

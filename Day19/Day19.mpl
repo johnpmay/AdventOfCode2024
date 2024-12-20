@@ -16,7 +16,8 @@ global pats:
    end do;
    return false;
 end proc:
-ans1 := CodeTools:-Usage( add(ifelse( ismatch(p),1,0),p in todo) );
+good := CodeTools:-Usage( select(ismatch, todo) ):
+ans1 := nops(good);
 
 countmatch := proc(s)
 option remember;
@@ -25,5 +26,5 @@ global pats:
    if s = "" then return 1; end if;
    return add( ifelse(IsPrefix(p,s),thisproc(Drop(s,length(p))),0), p in pats );
 end proc:
-ans2 := CodeTools:-Usage( add(countmatch(s), s in todo) );
+ans2 := CodeTools:-Usage( add(countmatch(s), s in good) );
 

@@ -17,24 +17,24 @@ local tmp, newS;
    tmp := newS*2048;
    newS :=  Bits:-Xor(tmp, newS)  mod 16777216;
 end proc:
-res := table():
-for m in monkeys do
-s:=m; to 2000 do s:=evo(s); end do:
-res[m]:=s;
-end do:
-ans1:=add(entries(res,'nolist'));
+
 pricegrid := Matrix(1..nM, 1..2001, datatype=integer[8]):
 for i to nM do
 s:=monkeys[i]; pricegrid[i,1] := s mod 10;
-for j to 2000 do s:=evo(s); pricegrid[i,j+1] := s mod 10; end do:
+    for j to 2000 do
+         s:=evo(s);
+         res[i] := s;
+         pricegrid[i,j+1] := s mod 10;
+     end do:
 end do:
-pricegrid;
+ans1:=add(entries(res,'nolist'));
+
 Statistics:-Tally(convert(pricegrid,Vector));
-changes := pricegrid[1..nM, 2..2001] - pricegrid[1..nM, 1..2000];
-code := "abcdefghijklmnopqrs";
-enc := i->code[i+10];
-dec := c->convert(c,ByteArray)[1]-106;
-cs := Matrix( 1..nM, 1..2000, (i,j)->code[changes[i,j]+10] );
+changes := pricegrid[1..nM, 2..2001] - pricegrid[1..nM, 1..2000]:
+code := "abcdefghijklmnopqrs":
+enc := i->code[i+10]:
+dec := c->convert(c,ByteArray)[1]-106:
+cs := Matrix( 1..nM, 1..2000, (i,j)->code[changes[i,j]+10] ):
 cs := [ seq( Join(convert(cs[i],list),""), i=1..nM) ]:
 
 rowprice := proc(fpc, m)
@@ -46,9 +46,38 @@ end proc:
 
 profit := fpc ->local i; add(rowprice(fpc, i), i=1..nM); 
 
-ngrams := { seq(NGrams(cs[i], 4)[], i=1..nM) }: nops(ngrams) < 18^4;
-totals := [seq(profit(g), g in ngrams)]:
-map(dec, Explode(ngrams[ max[index](totals) ]));
-ans2 := max(totals);
+scanrow := proc(m)
+global cs, pricegrid;
+local pricetable := table(sparse=0);
+    for local i to 2000-3 do
+        if pricetable[cs[m][i..i+3]] = 0 then
+            pricetable[cs[m][i..i+3]] := pricegrid[m,i+4];
+        end if;
+    end do;
+    return pricetable;
+end proc:
+
+rowtables := CodeTools:-Usage( [seq(scanrow(m), m=1..nops(monkeys))] ):
+
+ngrams := { seq(indices(rowtables[i],nolist), i=1..nops(monkeys)) }: nops(ngrams);
+
+findbest := proc()
+global rowtables, ngrams;
+local best, g, i, tmp, loc;
+    best := 0;
+    for g in ngrams do
+       tmp := add( rowtables[i][g], i=1..nops(monkeys) );
+        if tmp > best then best := tmp; loc := g; end if;
+    end do:
+    return best, loc;
+end proc:
+
+ans2 := CodeTools:-Usage(findbest());
+
+
+#ngrams := { seq(NGrams(cs[i], 4)[], i=1..nM) }: nops(ngrams) < 18^4;
+#totals := CodeTools:-Usage( [seq(profit(g), g in ngrams)] ):
+#map(dec, Explode(ngrams[ max[index](totals) ]));
+#ans2 := max(totals);
 
 
